@@ -24,11 +24,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/guitars', guitarsRouter);
-app.use('/board', (req, res) => {
-  let query = req.query;
-  console.log(`rows ${query.rows}`);
-  console.log(`cols ${query.cols}`);
-  res.render('board', { title:'Board', query:query});
+app.use('/board', (req, res, next) => {
+  const query = req.query;
+  res.render('board', { title: 'Board', query });
 });
 
 // catch 404 and forward to error handler
