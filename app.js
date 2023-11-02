@@ -28,7 +28,7 @@ app.use('/board', (req, res) => {
   let query = req.query;
   console.log(`rows ${query.rows}`);
   console.log(`cols ${query.cols}`);
-  res.render('board', { title:'Board', query});
+  res.render('board', { title:'Board', query:query});
 });
 
 // catch 404 and forward to error handler
